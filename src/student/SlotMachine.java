@@ -13,11 +13,13 @@ public class SlotMachine {
     public double play() {
         Random random = new Random();
         int num = random.nextInt(100);
+        amount += 0.25;
         if (num < 95) 
             return 0;
-        int payout = 100-num;
+        double payout = 100-num;
         if (payout > amount)
-            return amount;
+            payout = amount;
+        amount -= payout; 
         return payout;
     }
       
